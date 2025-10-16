@@ -1,4 +1,4 @@
-package org.electronicsGoods;
+package org.electronicsgoods;
 
 public class Product {
     private String name;
@@ -24,6 +24,9 @@ public class Product {
     }
 
     public void setPrice(double price) {
+        if (price < 0){
+            throw new IllegalArgumentException("Price can not be negative.");
+        }
         this.price = price;
     }
 
