@@ -1,64 +1,186 @@
-Functional Requirements (FR)
-These are the specific behaviors your application should exhibit.
+Functional Requirements → Agile User Stories
+Below, each FR group becomes a feature set, then broken into user stories and tasks for sprint planning.
 
-1. User Management
-FR1.1: System shall support user login and logout.
+🧩 Sprint 1: User & Product Management
+🔑 FR1: User Management
+User Stories
+US1.1: As a user, I want to log in and log out so that I can access the system securely.
 
-FR1.2: System shall support two user roles: Admin and Cashier.
+US1.2: As an admin, I want to create, update, and delete users so that I can manage who accesses the system.
 
-FR1.3: Admin can create, update, and delete users.
+US1.3: As a cashier, I want access only to billing features for security and role separation.
 
-FR1.4: Cashier can only access billing-related functionalities.
+Tasks
+ Define User, Admin, Cashier models
 
-2. Product Management
-FR2.1: Admin can add new products with details (ID, name, price, quantity, category).
+ Implement AuthService for login/logout
 
-FR2.2: Admin can update or delete existing products.
+ Implement UserDAO for user CRUD
 
-FR2.3: System shall allow viewing all products.
+ Enforce role-based access control in UI
 
-FR2.4: System shall support search/filter products by name/category.
+ CLI for admin user management
 
-3. Inventory Management
-FR3.1: System shall automatically reduce product stock after billing.
+📦 FR2: Product Management
+User Stories
+US2.1: As an admin, I want to add, update, and delete products so I can manage inventory.
 
-FR3.2: System shall alert when product quantity falls below threshold.
+US2.2: As any user, I want to view products and search/filter by name or category.
 
-FR3.3: Admin can manually update inventory quantities.
+Tasks
+ Define Product model
 
-4. Customer Management
-FR4.1: Cashier can register a new customer.
+ Implement ProductDAO for CRUD
 
-FR4.2: System shall maintain customer purchase history.
+ Implement ProductService with filter/search logic
 
-FR4.3: System shall maintain customer loyalty points.
+ CLI for product management
 
-5. Billing System
-FR5.1: Cashier can create a new bill with customer and selected products.
+ Product view UI for cashier
 
-FR5.2: System shall apply discounts based on customer loyalty.
+🧩 Sprint 2: Inventory & Customer Management
+🗃️ FR3: Inventory Management
+User Stories
+US3.1: As a system, I want to reduce stock automatically after billing.
 
-FR5.3: System shall generate an invoice (with ID, date, items, total, discount).
+US3.2: As a system, I want to alert when stock falls below threshold.
 
-FR5.4: System shall save the bill for record.
+US3.3: As an admin, I want to manually update stock when needed.
 
-6. Discounts & Offers
-FR6.1: System shall apply no discount for new customers.
+Tasks
+ Add threshold field to Product
 
-FR6.2: System shall apply 10% discount for customers with more than 100 loyalty points.
+ Implement inventory deduction logic post-billing
 
-FR6.3: Admin can configure discount rules (if advanced).
+ Add low-stock check in ProductService
 
-7. Reports
-FR7.1: Admin can generate daily/weekly/monthly sales reports.
+ Manual inventory update UI
 
-FR7.2: System shall show top-selling products.
+🧑‍💼 FR4: Customer Management
+User Stories
+US4.1: As a cashier, I want to register new customers during billing.
 
-FR7.3: System shall show low-stock products.
+US4.2: As a system, I want to store customer purchase history.
 
-8. Data Persistence
-FR8.1: System shall store product, customer, bill, and user data in files.
+US4.3: As a system, I want to track loyalty points for each customer.
 
-FR8.2: System shall load data at startup from files.
+Tasks
+ Create Customer model with loyalty points
 
-FR8.3: System shall save data after each operation (create/update/delete).
+ Implement CustomerDAO
+
+ Update loyalty points on each bill
+
+ Save customer history
+
+ CLI for cashier to register customer
+
+🧩 Sprint 3: Billing & Discounts
+🧾 FR5: Billing System
+User Stories
+US5.1: As a cashier, I want to create bills by selecting products and customers.
+
+US5.2: As a system, I want to apply discounts based on loyalty points.
+
+US5.3: As a cashier, I want to view/download invoices for the customer.
+
+US5.4: As a system, I want to save all bills for history and reporting.
+
+Tasks
+ Create Order, CartItem models
+
+ Build CartService and OrderService
+
+ Apply discount rules
+
+ Invoice generation (text-based)
+
+ Save orders to file/database
+
+🎁 FR6: Discounts & Offers
+User Stories
+US6.1: As a new customer, I want to receive no discount.
+
+US6.2: As a loyal customer, I want a 10% discount if I have > 100 points.
+
+US6.3: As an admin, I want to configure discount rules in the future (optional).
+
+Tasks
+ Discount engine (basic rule-based)
+
+ Integrate with billing flow
+
+ Loyalty point system
+
+ Optional: Admin interface to change discount rules (config file for now)
+
+🧩 Sprint 4: Reports & Persistence
+📊 FR7: Reports
+User Stories
+US7.1: As an admin, I want to generate sales reports by time period.
+
+US7.2: As an admin, I want to see top-selling products.
+
+US7.3: As an admin, I want a list of low-stock products.
+
+Tasks
+ Sales aggregation logic in ReportService
+
+ Top-selling product calculation
+
+ Low stock report
+
+ Admin report UI
+
+💾 FR8: Data Persistence
+User Stories
+US8.1: As a system, I want to persist all user/product/order data in files.
+
+US8.2: As a system, I want to load data from files on startup.
+
+US8.3: As a system, I want to save changes immediately after operations.
+
+Tasks
+ Implement file storage utils (JSON or text-based)
+
+ Serialize/deserialize models
+
+ Hook save/load into DAOs
+
+ Test with sample data
+
+📁
+🧰 Optional: Do You Want a Starter Project ZIP?
+✅ I can generate:
+
+The complete folder structure
+
+Empty class and interface templates
+
+Sample data files (JSON format)
+
+Starter AppLauncher.java with the menu
+
+Let me know if you want this and I'll prepare a downloadable .zip for you.
+
+🔚 Summary
+You're now fully aligned with:
+
+Enterprise-grade FR-driven Agile development
+
+A modular, scalable Java console app architecture
+
+A smooth future path to migrate to Spring Boot + REST
+
+🚀 Next Step:
+Which module would you like to start building first?
+
+ User Authentication (Login/Logout, Roles)
+
+ Product Management (CRUD)
+
+ Billing & Cart
+
+ File Persistence
+
+ Reports
