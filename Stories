@@ -1,0 +1,396 @@
+I’ll now rewrite the User Stories in full Agile format, based on your detailed Functional Requirements, using the INVEST principle:
+
+Independent
+
+Negotiable
+
+Valuable
+
+Estimable
+
+Small
+
+Testable
+
+Each user story will follow the format:
+
+As a <user role>,
+I want to <goal>,
+So that <benefit>.
+✅ Complete Agile User Stories – Supermarket Java Application
+🧩 EPIC 1: User Management (FR1)
+🧾 US1.1 – User Login/Logout
+As a user (Admin or Cashier),
+I want to log in and log out using my credentials,
+So that I can securely access my permitted functionalities.
+
+🧪 Acceptance Criteria:
+
+Prompt for username & password
+
+Authenticate against stored users
+
+Show role-based menus upon login
+
+Clear session on logout
+
+🧾 US1.2 – Role-Based Access
+As a system,
+I want to distinguish between Admin and Cashier roles,
+So that users only access the features they’re authorized for.
+
+🧪 Acceptance Criteria:
+
+Admin: Full access (users, products, reports)
+
+Cashier: Only billing and customer registration
+
+Unauthorized access is blocked
+
+🧾 US1.3 – Admin User Management
+As an Admin,
+I want to create, update, and delete user accounts,
+So that I can manage system access securely.
+
+🧪 Acceptance Criteria:
+
+Add new Cashier/Admin with unique credentials
+
+Edit existing user details (except role)
+
+Delete user from system
+
+🧩 EPIC 2: Product Management (FR2)
+🧾 US2.1 – Add Product
+As an Admin,
+I want to add new products to the inventory,
+So that they are available for billing.
+
+🧪 Acceptance Criteria:
+
+Input: ID, name, price, quantity, category
+
+Validate uniqueness of ID
+
+Product saved in memory/file
+
+🧾 US2.2 – Update/Delete Product
+As an Admin,
+I want to update or delete products,
+So that I can maintain accurate and current inventory.
+
+🧪 Acceptance Criteria:
+
+Search product by ID
+
+Modify any field except ID
+
+Delete product with confirmation
+
+🧾 US2.3 – View All Products
+As a user,
+I want to view the complete product catalog,
+So that I can browse or select items.
+
+🧪 Acceptance Criteria:
+
+Table/list display of products with all attributes
+
+Show stock quantity
+
+🧾 US2.4 – Search/Filter Products
+As a user,
+I want to search or filter products by name or category,
+So that I can quickly find what I’m looking for.
+
+🧪 Acceptance Criteria:
+
+Input: keyword/category
+
+Partial matches supported
+
+Case-insensitive search
+
+🧩 EPIC 3: Inventory Management (FR3)
+🧾 US3.1 – Auto Reduce Stock
+As a system,
+I want to reduce product quantity automatically after billing,
+So that stock levels remain accurate.
+
+🧪 Acceptance Criteria:
+
+Deduct quantity purchased
+
+Prevent checkout if quantity insufficient
+
+🧾 US3.2 – Low Stock Alert
+As a system,
+I want to alert the admin when product quantity is low,
+So that restocking can be done in time.
+
+🧪 Acceptance Criteria:
+
+Threshold set per product (default: 5)
+
+Alert shown during billing or product view
+
+🧾 US3.3 – Manual Stock Update
+As an Admin,
+I want to manually update stock quantities,
+So that I can adjust stock due to damages, returns, etc.
+
+🧪 Acceptance Criteria:
+
+Update product quantity directly
+
+Log reason (optional)
+
+🧩 EPIC 4: Customer Management (FR4)
+🧾 US4.1 – Register Customer
+As a Cashier,
+I want to register a new customer during billing,
+So that their purchases and loyalty can be tracked.
+
+🧪 Acceptance Criteria:
+
+Input: Name, phone/email (optional)
+
+Save customer to system
+
+Assign unique ID
+
+🧾 US4.2 – Purchase History
+As a system,
+I want to store a customer’s purchase history,
+So that past orders can be referenced.
+
+🧪 Acceptance Criteria:
+
+Link order records to customer ID
+
+Retrieve order history by customer
+
+🧾 US4.3 – Loyalty Points
+As a system,
+I want to accumulate loyalty points per purchase,
+So that repeat customers can earn discounts.
+
+🧪 Acceptance Criteria:
+
+Earn 1 point per 100 units currency spent
+
+Update total points after each order
+
+🧩 EPIC 5: Billing System (FR5)
+🧾 US5.1 – Create Bill
+As a Cashier,
+I want to generate a bill by selecting a customer and products,
+So that I can process purchases.
+
+🧪 Acceptance Criteria:
+
+Select customer
+
+Add one or more products (with quantity)
+
+Confirm and save bill
+
+🧾 US5.2 – Apply Discounts
+As a system,
+I want to apply discounts based on loyalty points,
+So that loyal customers are rewarded.
+
+🧪 Acceptance Criteria:
+
+No discount for < 100 points
+
+10% discount if points ≥ 100
+
+Show discount applied on invoice
+
+🧾 US5.3 – Generate Invoice
+As a Cashier,
+I want to generate an invoice after billing,
+So that the customer can see details of the transaction.
+
+🧪 Acceptance Criteria:
+
+Invoice includes: ID, Date, Customer, Items, Total, Discount
+
+Save to file and optionally print
+
+🧾 US5.4 – Save Bill
+As a system,
+I want to save all bills in a record store,
+So that they can be used for reports and history.
+
+🧪 Acceptance Criteria:
+
+Save as file or serialized object
+
+Unique bill ID
+
+Link to customer
+
+🧩 EPIC 6: Discounts & Offers (FR6)
+🧾 US6.1 – No Discount for New Customers
+As a system,
+I want to prevent discounts for new customers,
+So that only loyal ones benefit.
+
+🧾 US6.2 – Loyalty-Based Discount
+As a system,
+I want to apply 10% discount if loyalty points ≥ 100,
+So that customers are rewarded for repeat purchases.
+
+🧾 US6.3 – Admin Discount Rules (Advanced)
+As an Admin,
+I want to define custom discount rules,
+So that I can change offers as needed.
+
+🧪 Acceptance Criteria:
+
+Load discount logic from config file or admin UI (optional)
+
+Supports percentage or fixed amount rules
+
+🧩 EPIC 7: Reports (FR7)
+🧾 US7.1 – Sales Reports
+As an Admin,
+I want to generate daily/weekly/monthly reports,
+So that I can monitor business performance.
+
+🧪 Acceptance Criteria:
+
+Select time period
+
+Report includes: Total sales, # of orders, revenue
+
+🧾 US7.2 – Top-Selling Products
+As an Admin,
+I want to view top-selling products,
+So that I know which items are most popular.
+
+🧪 Acceptance Criteria:
+
+Based on quantity sold
+
+Sorted list with counts
+
+🧾 US7.3 – Low Stock Products
+As an Admin,
+I want to view low-stock products,
+So that I can prioritize restocking.
+
+🧪 Acceptance Criteria:
+
+Show products below their threshold
+
+Sorted by urgency
+
+🧩 EPIC 8: Data Persistence (FR8)
+🧾 US8.1 – Save Data
+As a system,
+I want to save all data (users, products, customers, orders) to files,
+So that it persists between sessions.
+
+🧾 US8.2 – Load Data at Startup
+As a system,
+I want to load all data from files during startup,
+So that the
+
+You said:
+/continue 
+ChatGPT said:
+Certainly! Let's continue from EPIC 8: Data Persistence, completing the remaining user stories and wrapping everything up.
+
+🧩 EPIC 8: Data Persistence (continued)
+🧾 US8.2 – Load Data at Startup
+As a system,
+I want to load all data from files during startup,
+So that the application resumes with the latest available information.
+
+🧪 Acceptance Criteria:
+
+On launch, system reads data files (users.json, products.json, etc.)
+
+Data is loaded into appropriate in-memory data structures
+
+Handle cases where files are missing or corrupted
+
+🧾 US8.3 – Save After Each Operation
+As a system,
+I want to automatically save data to files after any create, update, or delete operation,
+So that no information is lost unexpectedly.
+
+🧪 Acceptance Criteria:
+
+Every successful operation (add/update/delete user/product/order) triggers file write
+
+File updates are atomic and thread-safe
+
+Data is stored in readable JSON or text format
+
+🧾 BONUS USER STORIES – (Optional Features for Expansion)
+These aren’t part of the core MVP but would make your app more robust and closer to a production-level product.
+
+🧾 US9.1 – Role-Based Access Logs
+As an Admin,
+I want to view logs of user activities,
+So that I can monitor system usage and spot misuse.
+
+🧪 Acceptance Criteria:
+
+Every login, logout, product change, and billing action is logged
+
+Logs stored in a file with timestamp and user ID
+
+🧾 US9.2 – Product Import/Export
+As an Admin,
+I want to import and export products from/to a CSV file,
+So that I can bulk update the inventory easily.
+
+🧪 Acceptance Criteria:
+
+Export current inventory to CSV
+
+Import products from a formatted CSV
+
+Validate entries before import
+
+🧾 US9.3 – GUI Mode (Swing/JavaFX)
+As a user,
+I want to interact with the application via a GUI,
+So that I have a better user experience.
+
+🧪 Acceptance Criteria:
+
+Replace console with JavaFX or Swing views
+
+Use dropdowns, tables, buttons instead of typed input
+
+📊 Final Notes: Prioritization
+Priority	User Stories
+🟢 High	US1.1 to US5.4 (Authentication, Products, Billing)
+🟡 Medium	US6.1 to US7.3 (Discounts & Reports)
+🔵 Low	US8.1 to US9.3 (Persistence, GUI, Extras)
+🏁 Summary
+You now have a full set of descriptive, testable, and prioritized Agile User Stories, covering 100% of your functional requirements:
+
+✅ Structured for sprint-based delivery
+✅ Designed with modularity, testability, and extensibility
+✅ Prepares you for teamwork, version control (Git), and future migration to Spring Boot
+
+🚀 What Next?
+Here’s what you could do now:
+
+👇 Pick One of These:
+🛠 Start Implementing Sprint 1 (User + Product Management)
+
+📁 Download Starter Project (I can generate folder structure with boilerplate classes)
+
+📄 Create a Sprint Backlog with these stories and assign timelines
+
+❓ Ask for help writing code for any of the stories (I’ll guide you step by step)
+
+Let me know what you’d like to move forward with.
