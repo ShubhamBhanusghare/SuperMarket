@@ -1,0 +1,64 @@
+Functional Requirements (FR)
+These are the specific behaviors your application should exhibit.
+
+1. User Management
+FR1.1: System shall support user login and logout.
+
+FR1.2: System shall support two user roles: Admin and Cashier.
+
+FR1.3: Admin can create, update, and delete users.
+
+FR1.4: Cashier can only access billing-related functionalities.
+
+2. Product Management
+FR2.1: Admin can add new products with details (ID, name, price, quantity, category).
+
+FR2.2: Admin can update or delete existing products.
+
+FR2.3: System shall allow viewing all products.
+
+FR2.4: System shall support search/filter products by name/category.
+
+3. Inventory Management
+FR3.1: System shall automatically reduce product stock after billing.
+
+FR3.2: System shall alert when product quantity falls below threshold.
+
+FR3.3: Admin can manually update inventory quantities.
+
+4. Customer Management
+FR4.1: Cashier can register a new customer.
+
+FR4.2: System shall maintain customer purchase history.
+
+FR4.3: System shall maintain customer loyalty points.
+
+5. Billing System
+FR5.1: Cashier can create a new bill with customer and selected products.
+
+FR5.2: System shall apply discounts based on customer loyalty.
+
+FR5.3: System shall generate an invoice (with ID, date, items, total, discount).
+
+FR5.4: System shall save the bill for record.
+
+6. Discounts & Offers
+FR6.1: System shall apply no discount for new customers.
+
+FR6.2: System shall apply 10% discount for customers with more than 100 loyalty points.
+
+FR6.3: Admin can configure discount rules (if advanced).
+
+7. Reports
+FR7.1: Admin can generate daily/weekly/monthly sales reports.
+
+FR7.2: System shall show top-selling products.
+
+FR7.3: System shall show low-stock products.
+
+8. Data Persistence
+FR8.1: System shall store product, customer, bill, and user data in files.
+
+FR8.2: System shall load data at startup from files.
+
+FR8.3: System shall save data after each operation (create/update/delete).
