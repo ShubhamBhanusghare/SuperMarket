@@ -1,0 +1,54 @@
+Final Folder Structure (Aligned with FRs)
+com.supermarket
+├── main
+│   └── AppLauncher.java                   # Entry point
+│
+├── model
+│   ├── User.java
+│   ├── Admin.java
+│   ├── Cashier.java
+│   ├── Customer.java
+│   ├── Product.java
+│   ├── CartItem.java
+│   ├── Cart.java
+│   ├── Order.java
+│   └── Invoice.java
+│
+├── service
+│   ├── AuthService.java
+│   ├── UserService.java
+│   ├── ProductService.java
+│   ├── InventoryService.java
+│   ├── CartService.java
+│   ├── OrderService.java
+│   ├── ReportService.java
+│   └── DiscountService.java
+│
+├── dao
+│   ├── UserDAO.java
+│   ├── ProductDAO.java
+│   ├── CustomerDAO.java
+│   ├── OrderDAO.java
+│   └── FileDatabase.java                  # For file I/O persistence
+│
+├── ui
+│   ├── MenuUI.java                        # Entry menu
+│   ├── LoginUI.java
+│   ├── AdminUI.java
+│   ├── CashierUI.java
+│   └── ReportUI.java
+│
+├── util
+│   ├── InputUtil.java
+│   ├── Validator.java
+│   ├── FileUtil.java                      # Read/write to files
+│   └── IdGenerator.java
+│
+├── constants
+│   └── Roles.java                         # USER_ROLE = ADMIN / CASHIER
+│
+└── resources
+    ├── users.json
+    ├── products.json
+    ├── customers.json
+    └── orders.json
