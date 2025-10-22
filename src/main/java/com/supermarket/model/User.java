@@ -1,13 +1,11 @@
 package com.supermarket.model;
 
-import com.supermarket.constants.Roles;
-
 public class User {
 
-    private String userId;
-    private String userName;
-    private String password;
-    private Roles role;
+    private final String userId;
+    private final String userName;
+    private  String password;
+    private final Roles role;
 
     public User(String userId, String userName, String password, Roles role) {
         this.userId = userId;
