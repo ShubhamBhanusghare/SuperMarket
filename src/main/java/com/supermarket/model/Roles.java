@@ -1,4 +1,4 @@
-package com.supermarket.constants;
+package com.supermarket.model;
 
 public enum Roles {
     CASHIER, ADMIN;
