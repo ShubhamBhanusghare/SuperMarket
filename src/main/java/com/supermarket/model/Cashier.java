@@ -2,8 +2,8 @@ package com.supermarket.model;
 
 public class Cashier extends User{
 
-    public Cashier(String userId, String userName, String password,Roles role) {
-        super(userId, userName, password, role);
+    public Cashier(String userId, String userName, String password) {
+        super(userId, userName, password, Roles.CASHIER);
     }
 
 }
