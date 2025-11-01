@@ -15,6 +15,7 @@ final guarantees that adminService will always point to the same object after in
 This prevents accidental reassignment later in the code.
      */
     private final AdminService adminService=new AdminService();
+
     public void performAction(int choice){
         switch (choice)
         {
@@ -22,14 +23,24 @@ This prevents accidental reassignment later in the code.
                 adminService.addProduct();
                 break;
             case 2:
-                adminService.addUser();
+                adminService.viewInventory();
                 break;
             case 3:
-                adminService.deleteUser();
+                adminService.updateProduct();
                 break;
             case 4:
-                adminService.generateReport();
+                adminService.deleteProduct();
                 break;
+            case 5:
+                adminService.addUser();
+                break;
+            case 6:
+                adminService.getAllUsers();
+                break;
+            case 7:
+                adminService.deleteUser();
+                break;
+
             default: System.err.println("\nInvalid choice.\n");
         }
     }

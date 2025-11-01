@@ -26,19 +26,23 @@ public class MenuService {
                         Admin Menu
                         -------------------------------------
                         1. Add Product
-                        2. Add User
-                        3. Delete User
-                        4. Generate Report
-                        5. Logout
+                        2. View Inventory
+                        3. Update Product
+                        4. Delete Product
+                        5. Add User
+                        6.View All Users
+                        7. Delete user
+                        8. Logout
                         
                         Enter your choice:""");
                 int choice = sc.nextInt();
-                if (choice == 5) {
+                if (choice == 8) {
                     logoutService.logout();
                     isLoggedIn = false;
                 } else
                     adminController.performAction(choice);
-            } else if (SessionController.getCurrentUser().getRole().equals(Roles.CASHIER)) {
+            }
+            else if (SessionController.getCurrentUser().getRole().equals(Roles.CASHIER)) {
                 System.out.println("""
                         -------------------------------------
                         Cashier Menu
@@ -47,7 +51,6 @@ public class MenuService {
                         2. Generate Bill
                         3. View Stock
                         4. Logout
-                        
                         Enter your choice:""");
                 int choice = sc.nextInt();
                 if (choice == 4) {
