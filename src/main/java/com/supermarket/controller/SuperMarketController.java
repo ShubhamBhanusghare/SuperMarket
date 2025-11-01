@@ -10,6 +10,7 @@ public class SuperMarketController {
     private final LoginService loginService = new LoginService();
     MenuService menuservice=new MenuService();
     private final Scanner scanner = new Scanner(System.in);
+
     public void start() {
         while(true) {
             showMainMenu();

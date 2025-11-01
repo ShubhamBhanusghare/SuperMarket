@@ -28,7 +28,7 @@ public class ProductService {
     }
 
     public void updateProduct(String productId, double newPrice, int newQuantity){
-        Product product = productRepository.getProductById(productId)
+        Product product = getProductById(productId)
                 .orElseThrow(()->new NoSuchElementException("Product not found"));
 
         product.setProductPrice(newPrice);
@@ -38,6 +38,7 @@ public class ProductService {
     }
 
     public Optional<Product> deleteProduct(String productId){
+
         return productRepository.deleteProduct(productId);
     }
 

@@ -1,0 +1,201 @@
+| Role               | Description                                   | Responsibilities                                                                                                                                                                                                            |
+| ------------------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Admin**          | The owner/manager of the supermarket          | - Manage products (add, update, delete)<br>- Manage inventory (update stock, check low-stock alerts)<br>- Manage users (add/edit cashiers)<br>- View all reports (sales, stock, best sellers)<br>- Configure discount rules |
+| **Cashier**        | The person who bills customers at the counter | - Register new customers<br>- Create bills and process purchases<br>- Apply discounts automatically<br>- Generate and print invoices<br>- Update customer loyalty points                                                    |
+| **User (Generic)** | Base entity for Admin & Cashier               | - Has username, password, role<br>- Logs in to the system<br>- Accesses features based on assigned role
+
+1️⃣ USER MODULE
+
+Purpose: Handle login, authentication, and user management.
+
+Responsibilities:
+
+Maintain list of users (Admin + Cashier)
+
+Allow login/logout
+
+Restrict access based on role
+
+(Admin only) Create, update, delete users
+
+Core Classes:
+
+User (base class)
+
+Admin extends User
+
+Cashier extends User
+
+UserService (interface)
+
+UserServiceImpl (implementation with login validation)
+---------------------------------------------------
+
+2️⃣ PRODUCT MODULE
+
+Purpose: Manage all products sold in the supermarket.
+
+Responsibilities:
+
+Add new product (Admin)
+
+Update product details (Admin)
+
+Delete product (Admin)
+
+View/search products (Cashier)
+
+Filter by category (e.g., Grocery, Electronics, etc.)
+
+Core Classes:
+
+Product
+
+Category (enum)
+
+ProductService
+
+ProductDao (File I/O storage)
+--------------------------------------------------
+
+3️⃣ INVENTORY MODULE
+
+Purpose: Track and update product quantities.
+
+Responsibilities:
+
+Automatically reduce stock after billing
+
+Alert when stock < threshold
+
+Allow Admin to manually restock items
+
+Generate “Low Stock Report”
+
+Core Classes:
+
+InventoryManager (Singleton)
+
+InventoryAlertService
+
+Example:
+If stock of “Rice” drops below 10 → alert admin.
+--------------------------------------------------
+
+4️⃣ CUSTOMER MODULE
+
+Purpose: Manage customer data and loyalty points.
+
+Responsibilities:
+
+Register new customers (Cashier)
+
+View customer details and purchase history
+
+Track loyalty points
+
+Update loyalty points after each bill
+
+Core Classes:
+
+Customer
+
+CustomerService
+
+CustomerDao
+
+Example:
+Customer “Priya” earns 1 loyalty point for every ₹100 spent.
+--------------------------------------------------
+
+5️⃣ BILLING MODULE
+
+Purpose: Handle the complete billing process.
+
+Responsibilities:
+
+Create new bills (Cashier)
+
+Add products to cart
+
+Check stock availability
+
+Apply discount strategy
+
+Generate invoice (print/save to file)
+
+Update inventory and customer points
+
+Core Classes:
+
+Bill
+
+
+BillItem
+
+BillingService
+
+Cart
+
+Example Flow:
+
+Cashier selects customer
+
+Adds 3 items → total ₹500
+
+System applies 10% loyalty discount
+
+Generates invoice
+
+Updates stock and loyalty points
+--------------------------------------------------
+
+6️⃣ DISCOUNT MODULE
+
+Purpose: Apply appropriate discount strategies.
+
+Responsibilities:
+
+Apply different discounts based on customer loyalty or offers
+
+Support multiple discount strategies (NoDiscount, LoyaltyDiscount)
+
+Easy to extend in future
+
+Core Classes:
+
+DiscountStrategy (interface)
+
+NoDiscount, LoyaltyDiscount (implementations)
+
+Example:
+If loyalty points > 100 → apply 10% discount.
+
+--------------------------------------------------
+
+7️⃣ REPORTING MODULE
+
+Purpose: Generate useful business reports for the Admin.
+
+Responsibilities:
+
+Daily/weekly/monthly sales report
+
+Best-selling products
+
+Low-stock products
+
+Customer purchase history
+
+Core Classes:
+
+ReportService
+
+SalesReport, StockReport, etc.
+
+Example Reports:
+
+Total sales = ₹1,50,000 today
+op-selling = “Bread (250 units)”
+
+Low stock = “Soap (5 left)”
